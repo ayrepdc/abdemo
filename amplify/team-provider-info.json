@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-abdemoapp-dev-21839-authRole",
+      "UnauthRoleArn": "arn:aws:iam::064965114953:role/amplify-abdemoapp-dev-21839-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::064965114953:role/amplify-abdemoapp-dev-21839-authRole",
+      "Region": "ca-central-1",
+      "DeploymentBucketName": "amplify-abdemoapp-dev-21839-deployment",
+      "UnauthRoleName": "amplify-abdemoapp-dev-21839-unauthRole",
+      "StackName": "amplify-abdemoapp-dev-21839",
+      "StackId": "arn:aws:cloudformation:ca-central-1:064965114953:stack/amplify-abdemoapp-dev-21839/14d785a0-2f3e-11ed-8208-0273dbac0dee",
+      "AmplifyAppId": "d3pelx5r7etixi"
+    },
+    "categories": {
+      "auth": {
+        "abdemoapp75a10c0d": {
+          "userPoolId": "ca-central-1_hVd1zBClK",
+          "userPoolName": "openSearchUserPool",
+          "webClientId": "67mpvg0pkbqdhr30fj8lno8ehb",
+          "nativeClientId": "67mpvg0pkbqdhr30fj8lno8ehb",
+          "identityPoolId": "ca-central-1:f3a93077-d320-4557-9c57-60bbfa96c65c",
+          "identityPoolName": "openSearchIDPool",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::064965114953:role/Cognito_openSearchIDPoolAuth_Role",
+          "authRoleName": "Cognito_openSearchIDPoolAuth_Role",
+          "unauthRoleArn": "arn:aws:iam::064965114953:role/Cognito_openSearchIDPoolUnauth_Role",
+          "unauthRoleName": "Cognito_openSearchIDPoolUnauth_Role"
+        }
+      },
+      "storage": {
+        "abdemoapp2fbb9c34": {
+          "bucketName": "abdemo-audio",
+          "region": "ca-central-1"
+        }
+      }
+    }
+  }
+}
