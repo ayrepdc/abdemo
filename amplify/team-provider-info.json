@@ -12,8 +12,20 @@
       "AmplifyAppId": "d3pelx5r7etixi"
     },
     "categories": {
+      "storage": {
+        "abdemoapp2fbb9c34": {
+          "bucketName": "abdemo-audio",
+          "region": "ca-central-1"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3pelx5r7etixi",
+          "type": "cicd"
+        }
+      },
       "auth": {
-        "abdemoapp75a10c0d": {
+        "abdemoappa1427481": {
           "userPoolId": "ca-central-1_hVd1zBClK",
           "userPoolName": "openSearchUserPool",
           "webClientId": "67mpvg0pkbqdhr30fj8lno8ehb",
@@ -25,12 +37,6 @@
           "authRoleName": "Cognito_openSearchIDPoolAuth_Role",
           "unauthRoleArn": "arn:aws:iam::064965114953:role/Cognito_openSearchIDPoolUnauth_Role",
           "unauthRoleName": "Cognito_openSearchIDPoolUnauth_Role"
-        }
-      },
-      "storage": {
-        "abdemoapp2fbb9c34": {
-          "bucketName": "abdemo-audio",
-          "region": "ca-central-1"
         }
       }
     }
