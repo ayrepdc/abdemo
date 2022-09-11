@@ -6,10 +6,10 @@ import "react-dropzone-uploader/dist/styles.css";
 import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import axios from 'axios';
 import Files from 'react-files'
-import logo from '../images/logo.jpg'
+import logo from '../images/logo.png'
 import { Recorder } from 'react-voice-recorder';
 import moment from 'moment'
-
+import swal from 'sweetalert'
 import Recordaudio from './recordaudio';
 import { Redirect } from 'react-router';
 const UserPoolId = "ca-central-1_hVd1zBClK";
@@ -85,7 +85,14 @@ export default class fileUpload extends Component {
     const result = await fetch(response.data.body, {
       method: "PUT",
       body: this.state.file,
-    });
+    })
+      .then((res) => {
+        // alert("submit succes")
+        swal("File is uploaded succesfully!", "", "success");
+      }).catch((err) => {
+        console.log("err", err);
+        throw "ERROR AFTER THEN";
+      });
     console.log("Result: ", result);
   };
 
@@ -174,9 +181,9 @@ export default class fileUpload extends Component {
           </div> */}
         </div>
 
-        <div className="row">
-          <div className="col-sm-6">
-            <div className="card custom2" style={{ display: this.state.isAuthenticated ? 'block' : 'none', padding: "15px ", height: '400px', margin: '29px 0 0 23px ' }}>
+        <div className="row ">
+          <div className="col-sm-6 margenTop">
+            <div className="card custom2" style={{ display: this.state.isAuthenticated ? 'block' : 'none', background:"#212121",  padding: "15px ", height: '400px', margin: '29px 0 0 23px ' }}>
               <div className="files">
                 <Files
                   className='files-dropzone'
@@ -198,8 +205,8 @@ export default class fileUpload extends Component {
                       </span>
                     </div>
                     : <>
-                      <div className='box'>
-                        <span style={{ position: " relative", top: "87px" }}>
+                      <div className='box text-light'>
+                        <span className='text-light h3' style={{ position: " relative", top: "87px", color: 'white' }}>
                           Drop files here or click to upload
                         </span>
                       </div>
@@ -209,16 +216,16 @@ export default class fileUpload extends Component {
                 {/* <div className="col-sm-6"> </div> */}
                 <div className="col-sm-5 " style={{ float: "right" }}>
                   &nbsp;
-                  <button type="button" className={`btn btn primary mb-5 uploadIN`} disabled={!this.state.file} onClick={this.handleSubmit}>Upload</button>
+                  <button type="button" className={`btn btn primary mb-5 uploadIN uploadCss ${this.state.file && 'activeUpload'}`} disabled={!this.state.file} onClick={this.handleSubmit} style={{borderRadius:'20px' , height:"20px" }}>Upload</button>
                   &nbsp;
-                  {this.state.file && <button type="button" className={`btn btn primary mb-5 uploadIN`} disabled={!this.state.file} onClick={this.clear}> remove</button>}
+                  {this.state.file && <button type="button" className={`btn btn primary mb-5 uploadIN uploadCss removeBtn`} disabled={!this.state.file} onClick={this.clear} style={{ marginRight: '5px'}}> remove</button>}
                   &nbsp;
 
                 </div>
               </div>
             </div>
           </div>
-          <div className="col-sm-5" >
+          <div className="col-sm-5 margenTop" >
             <Recordaudio />
           </div>
         </div>

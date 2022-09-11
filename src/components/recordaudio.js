@@ -93,14 +93,14 @@ export default class recordaudio extends Component {
                 record={true}
                 title={"New recording"}
                 audioURL={this.state.audioDetails.url}
-                uploadButtonDisabled = {true}
+               // uploadButtonDisabled = {true}
                 showUIAudio
                 handleAudioStop={data => this.handleAudioStop(data)}
                 handleOnChange={(value) => this.handleOnChange(value, 'firstname')}
-                // handleAudioUpload={data => this.handleAudioUpload(data)}
+                handleAudioUpload={data => this.handleAudioUpload()}
                 handleRest={() => this.handleRest()} />
 
-                <button type='button ' className='btn btn primary' onClick={this.handleAudioUpload}> Upload</button>
+                {/* <button type='button ' className='btn btn primary' onClick={this.handleAudioUpload}> Upload</button> */}
       </div>
     )
   }
