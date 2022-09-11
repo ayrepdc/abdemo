@@ -1,0 +1,38 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-medtransdemo-dev-195659-authRole",
+      "UnauthRoleArn": "arn:aws:iam::064965114953:role/amplify-medtransdemo-dev-195659-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::064965114953:role/amplify-medtransdemo-dev-195659-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-medtransdemo-dev-195659-deployment",
+      "UnauthRoleName": "amplify-medtransdemo-dev-195659-unauthRole",
+      "StackName": "amplify-medtransdemo-dev-195659",
+      "StackId": "arn:aws:cloudformation:us-east-1:064965114953:stack/amplify-medtransdemo-dev-195659/442f8910-3164-11ed-967a-0a609463d635",
+      "AmplifyAppId": "d3sfkm46huesgq"
+    },
+    "categories": {
+      "auth": {
+        "medtransdemo3fe80473": {
+          "userPoolId": "us-east-1_7YioCS6c1",
+          "userPoolName": "abdemo-pool",
+          "webClientId": "1ib7q3jq0qlkthsi1od44nfogq",
+          "nativeClientId": "1ib7q3jq0qlkthsi1od44nfogq",
+          "identityPoolId": "us-east-1:4a448285-dfb1-4fc8-96ec-61f9468c2058",
+          "identityPoolName": "abdemoidpool",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::064965114953:role/Cognito_abdemoidpoolAuth_Role",
+          "authRoleName": "Cognito_abdemoidpoolAuth_Role",
+          "unauthRoleArn": "arn:aws:iam::064965114953:role/Cognito_abdemoidpoolUnauth_Role",
+          "unauthRoleName": "Cognito_abdemoidpoolUnauth_Role"
+        }
+      },
+      "storage": {
+        "medtransdemo5f110790": {
+          "bucketName": "abdemo-audio",
+          "region": "ca-central-1"
+        }
+      }
+    }
+  }
+}
