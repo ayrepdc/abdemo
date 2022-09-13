@@ -3,6 +3,8 @@ import {Recorder} from 'react-voice-recorder'
 import 'react-voice-recorder/dist/index.css'
 import axios from 'axios';
 import Files from 'react-files';
+import swal from 'sweetalert';
+
 
 
 const ApiGatewayUrl = 'https://edkchnowzk.execute-api.ca-central-1.amazonaws.com/dev/geturl';
@@ -21,13 +23,17 @@ export default class recordaudio extends Component {
         },
         accessToken: localStorage.getItem('token')
     }
-
-    
+   
+   
 
     handleAudioStop = (data) => {
         console.log(data)
         this.setState({ audioDetails: data });
+        
     }
+
+    
+
     handleAudioUpload = async () =>  {
         console.log("audioDetails" , this.state.audioDetails);
         // const file = JSON.stringify(this.state.audioDetails);
@@ -36,14 +42,14 @@ export default class recordaudio extends Component {
         //     type: myBlob.type,
         // });
 
+        
+
         const mediaBlob = await fetch(this.state.audioDetails.url)
             .then(response => response.blob());
 
-        const myFile = new File(
-            [mediaBlob],
-            "demo.mp4",
-            { type: 'video/mp4' }
-        );
+        console.log("Media Blob - ", mediaBlob);
+
+        const myFile = new File([mediaBlob],{ type: 'video/mp4'  });
 
 
 
@@ -54,6 +60,8 @@ export default class recordaudio extends Component {
             headers: {
                 Authorization: this.state.accessToken,
             },
+            crossDomain: true,
+            overturn_count: true
         });
 
         console.log("Response: ", response.data.body);
@@ -61,10 +69,17 @@ export default class recordaudio extends Component {
         // * PUT request: upload file to S3
         const result = await fetch(response.data.body, {
             method: "PUT",
-            body:  myFile,
-        });
-        console.log("Result: ", result);
-    }
+            body: myFile,
+          })
+            .then((res) => {
+              // alert("submit succes")
+              swal("File uploaded successfully!", "", "success");
+            }).catch((err) => {
+              console.log("err", err);
+              throw "ERROR AFTER THEN";
+            });
+          console.log("Result: ", result);
+        };
   
     
     handleRest() {
@@ -83,6 +98,7 @@ export default class recordaudio extends Component {
 
     handleOnChange = (v) => {
         console.log("v" , v);
+        
     }
 
     render() {
@@ -91,9 +107,10 @@ export default class recordaudio extends Component {
       <div>
             <Recorder
                 record={true}
-                title={"New recording"}
+                //title={"New recording"}
                 audioURL={this.state.audioDetails.url}
-               // uploadButtonDisabled = {true}
+                //uploadButtonDisabled = {true}
+                //mimeTypeToUseWhenRecording = {'audio/webm;codecs=opus'}
                 showUIAudio
                 handleAudioStop={data => this.handleAudioStop(data)}
                 handleOnChange={(value) => this.handleOnChange(value, 'firstname')}

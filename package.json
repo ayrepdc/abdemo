@@ -16,6 +16,8 @@
     "bootstrap-sweetalert": "^1.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
+    "lamejs": "^1.2.1",
+    "mic-recorder-to-mp3": "^2.2.2",
     "moment": "^2.29.4",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

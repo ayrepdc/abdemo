@@ -83,7 +83,7 @@
 
 .header {
   overflow: hidden;
-  background-color: #f1f1f1;
+  background-color: #e4830b;
   padding: 20px 10px;
 }
 
@@ -180,18 +180,18 @@
   width: 87px;
   position: relative;
   top: 11px;
-  color: gray;
-  background: white;
+  color: white;
+  background: #185fec;
 }
 
 .activeUpload {
   color: white;
-  background-color: blue;
+  background-color: #185fec;
 }
 
 .removeBtn {
   color: white;
-  background-color: red;
+  background-color: #de1515;
 }
 .margenTop {
   position: relative;

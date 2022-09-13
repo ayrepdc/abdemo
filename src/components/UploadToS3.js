@@ -8,6 +8,7 @@ import axios from 'axios';
 import Files from 'react-files'
 import logo from '../images/logo.png'
 import { Recorder } from 'react-voice-recorder';
+import Sampleaudio from "./samplefileupload"
 import moment from 'moment'
 import swal from 'sweetalert'
 import Recordaudio from './recordaudio';
@@ -76,7 +77,9 @@ export default class fileUpload extends Component {
       url: ApiGatewayUrl,
       headers: {
         Authorization: this.state.accessToken,
-      },
+        },
+        crossDomain: true,
+        overturn_count: true
     });
 
     console.log("Response: ", response.data.body);
@@ -88,7 +91,7 @@ export default class fileUpload extends Component {
     })
       .then((res) => {
         // alert("submit succes")
-        swal("File is uploaded succesfully!", "", "success");
+        swal("File uploaded successfully!", "", "success");
       }).catch((err) => {
         console.log("err", err);
         throw "ERROR AFTER THEN";
@@ -117,7 +120,7 @@ export default class fileUpload extends Component {
 
   }
 
-
+ 
 
   render() {
     const location = {
@@ -138,7 +141,7 @@ export default class fileUpload extends Component {
         <div className="header">
           <img src={logo} className="logo" height={'50px'} width={"100px"} />
           <div className="header-right">
-            <button type='button' className='btn btn primary p-5' style={{ float: 'right' }} onClick={this.signOut}>Sign out</button>
+            <button type='button' className="btn btn primary mb-5 uploadIN uploadCss" style={{ float: 'right',marginTop: '-15px' }} onClick={this.signOut}>Sign out</button>
           </div>
         </div>
 
@@ -218,7 +221,7 @@ export default class fileUpload extends Component {
                   &nbsp;
                   <button type="button" className={`btn btn primary mb-5 uploadIN uploadCss ${this.state.file && 'activeUpload'}`} disabled={!this.state.file} onClick={this.handleSubmit} style={{borderRadius:'20px' , height:"20px" }}>Upload</button>
                   &nbsp;
-                  {this.state.file && <button type="button" className={`btn btn primary mb-5 uploadIN uploadCss removeBtn`} disabled={!this.state.file} onClick={this.clear} style={{ marginRight: '5px'}}> remove</button>}
+                  {this.state.file && <button type="button" className={`btn btn primary mb-5 uploadIN uploadCss removeBtn`} disabled={!this.state.file} onClick={this.clear} style={{ marginRight: '5px'}}> Remove</button>}
                   &nbsp;
 
                 </div>
@@ -227,9 +230,12 @@ export default class fileUpload extends Component {
           </div>
           <div className="col-sm-5 margenTop" >
             <Recordaudio />
+            {/* <Sampleaudio/> */}
           </div>
         </div>
       </div>
+
+      
     );
   };
 };

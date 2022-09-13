@@ -11376,6 +11376,13 @@
   "resolved" "https://registry.npmjs.org/kleur/-/kleur-3.0.3.tgz"
   "version" "3.0.3"
 
+"lamejs@^1.2.0", "lamejs@^1.2.1":
+  "integrity" "sha512-s7bxvjvYthw6oPLCm5pFxvA84wUROODB8jEO2+CE1adhKgrIvVOlmMgY8zyugxGrvRaDHNJanOiS21/emty6dQ=="
+  "resolved" "https://registry.npmjs.org/lamejs/-/lamejs-1.2.1.tgz"
+  "version" "1.2.1"
+  dependencies:
+    "use-strict" "1.0.1"
+
 "last-call-webpack-plugin@^3.0.0":
   "integrity" "sha512-7KI2l2GIZa9p2spzPIVZBYyNKkN+e/SQPpnjlTiPhdbDW3F86tdKKELxKpzJ5sgU19wQWsACULZmpTPYHeWO5w=="
   "resolved" "https://registry.npmjs.org/last-call-webpack-plugin/-/last-call-webpack-plugin-3.0.0.tgz"
@@ -12237,6 +12244,13 @@
     "throat" "^5.0.0"
     "ws" "^7.5.1"
     "yargs" "^15.3.1"
+
+"mic-recorder-to-mp3@^2.2.2":
+  "integrity" "sha512-xDkOaHbojW3bdKOGn9CI5dT+Mc0RrfczsX/Y1zGJp3FUB4zei5ZKFnNm7Nguc9v910wkd7T3csnCTq5EtCF3Zw=="
+  "resolved" "https://registry.npmjs.org/mic-recorder-to-mp3/-/mic-recorder-to-mp3-2.2.2.tgz"
+  "version" "2.2.2"
+  dependencies:
+    "lamejs" "^1.2.0"
 
 "micromatch@^2.3.11":
   "integrity" "sha512-LnU2XFEk9xxSJ6rfgAry/ty5qwUTyHYOBU0g4R6tIw5ljwgGIBmiKhRWLw5NpMOnrgUNcDJ4WMp8rl3sYVHLNA=="
@@ -15489,6 +15503,11 @@
     "ajv-errors" "^1.0.0"
     "ajv-keywords" "^3.1.0"
 
+"sdp@^3.0.2":
+  "integrity" "sha512-8EkfckS+XZQaPLyChu4ey7PghrdcraCVNpJe2Gfdi2ON1ylQ7OasuKX+b37R9slnRChwIAiQgt+oj8xXGD8x+A=="
+  "resolved" "https://registry.npmjs.org/sdp/-/sdp-3.0.3.tgz"
+  "version" "3.0.3"
+
 "select-hose@^2.0.0":
   "integrity" "sha512-mEugaLK+YfkijB4fx0e6kImuJdCIt2LxCRcbEYPqRGCs4F2ogyfZU5IAZRdjCP8JPq2AtdNoC/Dux63d9Kiryg=="
   "resolved" "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz"
@@ -16955,6 +16974,11 @@
     "detect-node-es" "^1.1.0"
     "tslib" "^2.0.0"
 
+"use-strict@1.0.1":
+  "integrity" "sha512-IeiWvvEXfW5ltKVMkxq6FvNf2LojMKvB2OCeja6+ct24S1XOmQw2dGr2JyndwACWAGJva9B7yPHwAmeA9QCqAQ=="
+  "resolved" "https://registry.npmjs.org/use-strict/-/use-strict-1.0.1.tgz"
+  "version" "1.0.1"
+
 "use-sync-external-store@^1.0.0":
   "integrity" "sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA=="
   "resolved" "https://registry.npmjs.org/use-sync-external-store/-/use-sync-external-store-1.2.0.tgz"
@@ -17302,6 +17326,13 @@
     "uglifyjs-webpack-plugin" "^1.2.4"
     "watchpack" "^1.5.0"
     "webpack-sources" "^1.2.0"
+
+"webrtc-adapter@>=4.1.1":
+  "integrity" "sha512-j1tsxKR/NmNgqrlLTL5jsNmFBrsIdTvBWZ2I1UAs/J37M1s1chLy1Fp7RfQHflHk3KoSNAxp/4y6ictHJ8prSw=="
+  "resolved" "https://registry.npmjs.org/webrtc-adapter/-/webrtc-adapter-8.1.2.tgz"
+  "version" "8.1.2"
+  dependencies:
+    "sdp" "^3.0.2"
 
 "websocket-driver@>=0.5.1":
   "integrity" "sha512-b17KeDIQVjvb0ssuSDF2cYXSg2iztliJ4B9WdsuB6J952qCPKmnVq4DyW5motImXHDC1cBT/1UezrJVsKw5zjg=="
