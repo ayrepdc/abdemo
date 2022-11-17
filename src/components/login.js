@@ -41,7 +41,7 @@ export default class login extends Component {
           isAuthenticated: true,
           isLoginFailed: false,
         });
-        this.props.history.push('/fileUpload')
+        this.props.history.push('/selectScale')
     }
   };
 
