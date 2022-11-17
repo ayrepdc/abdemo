@@ -45,7 +45,7 @@ export default class result extends Component {
     status = (data) => {
         console.log("data", data);
         if (["3", 3].includes(data)) {
-            return `/img/Median.jpeg`
+            return `/img/Median.png`
         } else if (data > 3) {
             return `/img/Positive.png`
         } else {
