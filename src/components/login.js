@@ -31,10 +31,13 @@ export default class login extends Component {
   // is used by both login and password reset
   onSuccess = (result) => {
     console.log("onSuccess");
-    console.log(result);
+    console.log('result' , result);
     if (result.idToken.jwtToken ) {
         localStorage.setItem('token',result.idToken.jwtToken);
         localStorage.setItem('ExpTime',result.accessToken.payload.exp);
+        localStorage.setItem('user_email',result.idToken.payload.email);
+        localStorage.setItem('user_name',result.accessToken.payload.username);
+
 
         this.setState({
           accessToken: result.idToken.jwtToken, // the token used for subsequent, authorized requests
