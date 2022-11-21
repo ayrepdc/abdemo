@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { fetchData, docClient } from './importdbdata';
 import { Link } from 'react-router-dom';
+import { type } from '@testing-library/user-event/dist/type';
+import logo from '../images/logo.png'
+
+
 class selectscale extends Component {
     constructor(props) {
         super(props);
@@ -49,10 +53,10 @@ class selectscale extends Component {
         var index = array.indexOf(id);
         if (index !== -1) {
             array.splice(index, 1);
-           return  this.setState({ id: array });
+            return this.setState({ id: array });
         }
         if (array.length > 5) {
-            return alert("Maximum 6 buttons/options should be selected");
+            return alert("Please select upto 6 options");
         }
         if (index !== -1) {
             array.splice(index, 1);
@@ -75,32 +79,62 @@ class selectscale extends Component {
     }
 
     saveLocal = () => {
-        localStorage.setItem('array' ,this.state.id)
+        localStorage.setItem('array', this.state.id)
     }
+    signOut = () => {
+        localStorage.clear();
+        this.props.history.push('/')
+      }
 
     render() {
         const { data, loading, id } = this.state;
         console.log("id", id);
+
+        const userName = localStorage.getItem('user_name')
+
         let list = (
             <div className="container">
-                {loading === false && data.Items.map((x, i) => (
-                    <span className='m-5' >
-                        <button type="button" className={`${status(x.Type)} btn-lg ${this.checkStatus(x.Factor_ID, x.Type)}`} aria-pressed="true" key={i} onClick={() => this.removePeople(x.Factor_ID, x.Type)}> {x.Factor} </button>
-                    </span>
-                    //id.includes(x.Factor_ID)
-                ))}
-                <div className='text-right mt-5'>
-
-               {this.state.id.length > 0 && <Link
-                    to={{
-                        pathname: `/result/${id.length}`,
-                        state: { data: id }
-                    }}
-                    className="btn btn-primary text-light"
-                    onClick={this.saveLocal}
-                    > Submit </Link> }
+                <div className="header">
+                    <img src={logo} className="logo" height={'50px'} width={"100px"} />
+                    <div className="header-right">
+                        <h1> Welcome, {userName} </h1>
+                        <button type='button' className="btn btn primary mb-5 uploadIN uploadCss" style={{ float: 'right', marginTop: '-15px' }} onClick={this.signOut}>Sign out</button>
                     </div>
-            </div>
+                </div>
+                <div class="row">
+                    {loading === false && data.Items.sort((a, b) => a.Factor_ID > b.Factor_ID ? 1 : -1).map((x, i) => (
+                        <div>
+
+                            {x.type === "Negative" ?
+                                <div class="col-sm-6">
+
+                                    <span className='m-5' >
+                                        <button type="button" className={`${status(x.Type)} btn-lg ${this.checkStatus(x.Factor_ID, x.Type)}`} aria-pressed="true" key={i} onClick={() => this.removePeople(x.Factor_ID, x.Type)}> {x.Factor} </button>
+                                    </span>
+                                </div>
+                                :
+                                <div class="col-sm-6">
+
+                                    <span className='m-5' >
+                                        <button type="button" className={`${status(x.Type)} btn-lg ${this.checkStatus(x.Factor_ID, x.Type)}`} aria-pressed="true" key={i} onClick={() => this.removePeople(x.Factor_ID, x.Type)}> {x.Factor} </button>
+                                    </span>
+                                </div>}
+                        </div>
+                        //id.includes(x.Factor_ID)
+                    ))}
+                </div>
+                <div className='text-right-cust '>
+
+                    {this.state.id.length > 0 && <Link
+                        to={{
+                            pathname: `/result/${id.length}`,
+                            state: { data: id }
+                        }}
+                        className="btn btn-primary text-light"
+                        onClick={this.saveLocal}
+                    > Submit </Link>}
+                </div>
+            </div >
 
         )
         return (

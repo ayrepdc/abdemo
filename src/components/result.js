@@ -3,6 +3,7 @@ import { fetchData, docClient } from './importdbdata';
 import NegativeImg from '../images/Negative.png';
 import PositiveImg from '../images/Positive.png';
 import MedianImg from '../images/Median.jpeg';
+const mailer = require("./mailer");
 
 export const toAbsoluteUrl = pathname => window.location.origin + pathname;
 
@@ -45,10 +46,16 @@ export default class result extends Component {
     status = (data) => {
         console.log("data", data);
         if (["3", 3].includes(data)) {
+            const imgData = (`/img/Median.png`);
+            localStorage.setItem('outputimage',imgData);
             return `/img/Median.png`
         } else if (data > 3) {
+            const imgData = (`/img/Positive.png`);
+            localStorage.setItem('outputimage',imgData);
             return `/img/Positive.png`
         } else {
+            const imgData = (`/img/Negative.png`);
+            localStorage.setItem('outputimage',imgData);
             return `/img/Negative.png`
         }
     }
@@ -67,6 +74,22 @@ export default class result extends Component {
         element.download = "image.jpg";
         element.click();
     };
+
+    sendEMail= () => {
+        console.log("Inside Send Email Beginning");
+        const selected_data = localStorage.getItem('array');
+        const image_url =  `${toAbsoluteUrl(localStorage.getItem('outputimage'))}`
+        console.log("Output image URL in send email function ", image_url);
+        // build the request payload which includes the url of the end-point we want to hit
+        const payload = {
+          details: JSON.stringify(selected_data),
+          result_image: image_url
+        };
+
+        return mailer.sendMail('ayrepoojasocial90@gmail.com', ['reciever@email.com'], payload)
+
+    };
+
 
     getHosp = ( ) => {
         let filter = [];
@@ -95,9 +118,10 @@ export default class result extends Component {
                         download
                         onClick={() => this.download()}
                     >
-                        <i className="fa fa-download" />
-                        download
+                       <button className="btn btn-primary text-light">Download</button> 
                     </a>
+                    <span>&nbsp; &nbsp;</span>
+                    <button className="btn btn-primary text-light" onClick={() => this.sendEMail()}> Send Email</button>
                 </div>
             </div>
         )
