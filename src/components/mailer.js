@@ -7,7 +7,8 @@ const htmlTemplate = (data) => {
   return `
     <h1>This is the Resillience output</h1>
     <p><strong>Selected Options:</strong> ${data.details}</p> 
-    <img src=${data.result_image}/>
+    <img src=${data.result_image}></img>
+    ${alert("Email sent successfully")}
     `;
 };
 

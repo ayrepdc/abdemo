@@ -3,7 +3,10 @@ import { fetchData, docClient } from './importdbdata';
 import NegativeImg from '../images/Negative.png';
 import PositiveImg from '../images/Positive.png';
 import MedianImg from '../images/Median.jpeg';
+
+
 const mailer = require("./mailer");
+
 
 export const toAbsoluteUrl = pathname => window.location.origin + pathname;
 
@@ -122,6 +125,8 @@ export default class result extends Component {
                     </a>
                     <span>&nbsp; &nbsp;</span>
                     <button className="btn btn-primary text-light" onClick={() => this.sendEMail()}> Send Email</button>
+                    <span>&nbsp; &nbsp;</span>
+                    <button  className="btn btn-primary text-light" onClick={this.props.history.goBack}>Go back</button>
                 </div>
             </div>
         )

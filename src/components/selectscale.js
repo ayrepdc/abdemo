@@ -97,10 +97,10 @@ class selectscale extends Component {
                 <div className="header">
                     <img src={logo} className="logo" height={'50px'} width={"100px"} />
                     <div className="header-right">
-                        <h1> Welcome, {userName} </h1>
+                        <h4> Welcome, {userName} </h4>
                         <button type='button' className="btn btn primary mb-5 uploadIN uploadCss" style={{ float: 'right', marginTop: '-15px' }} onClick={this.signOut}>Sign out</button>
                     </div>
-                </div>
+                </div> <br></br>
                 <div class="row">
                     {loading === false && data.Items.sort((a, b) => a.Factor_ID > b.Factor_ID ? 1 : -1).map((x, i) => (
                         <div>
