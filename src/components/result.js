@@ -75,8 +75,8 @@ export default class result extends Component {
 
     upload = (file) => {
         const config = {
-            bucketName: process.env.REACT_APP_BUCKET_NAME,
-            region: process.env.REACT_APP_REGION,
+            bucketName: 'abdemo-audio',
+            region: 'ca-central-1',
             accessKeyId: process.env.REACT_APP_ACCESS_ID,
             secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
         }
