@@ -35,6 +35,8 @@ export default class fileUpload extends Component {
     };
   };
 
+  
+
   // this.getTime();
   componentDidMount() {
     const intervalId = setInterval(() => {

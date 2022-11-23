@@ -3,7 +3,7 @@ import { fetchData, docClient } from './importdbdata';
 import NegativeImg from '../images/Negative.png';
 import PositiveImg from '../images/Positive.png';
 import MedianImg from '../images/Median.jpeg';
-
+import S3 from 'react-aws-s3';
 
 const mailer = require("./mailer");
 
@@ -52,16 +52,44 @@ export default class result extends Component {
         if (["3", 3].includes(data)) {
             const imgData = (`/img/Median.png`);
             localStorage.setItem('outputimage',imgData);
+            const splitstring = imgData.split("/");
+            console.log("Split String text: ",splitstring[2] );
+            this.upload(splitstring[2]);
             return `/img/Median.png`
         } else if (data > 3) {
             const imgData = (`/img/Positive.png`);
             localStorage.setItem('outputimage',imgData);
+            const splitstring = imgData.split("/");
+            console.log("Split String text: ",splitstring[2] );
+            this.upload(splitstring[2]);
             return `/img/Positive.png`
         } else {
             const imgData = (`/img/Negative.png`);
             localStorage.setItem('outputimage',imgData);
+            const splitstring = imgData.split("/");
+            console.log("Split String text: ",splitstring[2] );
+            this.upload(splitstring[2]);
             return `/img/Negative.png`
         }
+    }
+
+    upload = (file) => {
+        const config = {
+            bucketName: process.env.REACT_APP_BUCKET_NAME,
+            region: process.env.REACT_APP_REGION,
+            accessKeyId: process.env.REACT_APP_ACCESS_ID,
+            secretAccessKey: process.env.REACT_APP_SECRET_ACCESS_KEY,
+        }
+
+        console.log("Inside S3 Upload");
+        const ReactS3Client = new S3(config);
+        const filename = `${toAbsoluteUrl(localStorage.getItem('outputimage'))}`
+        //console.log("Inside S3 Upload filename object value: ", filename );
+        // the name of the file uploaded is used to upload it to S3
+        ReactS3Client.uploadFile(filename,file)
+        .then(data => console.log(data.location))
+        .catch(err => console.error(err))
+
     }
 
     download = () => {
