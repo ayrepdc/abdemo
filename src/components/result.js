@@ -15,7 +15,8 @@ export default class result extends Component {
         super(props);
         this.state = {
             data: [],
-            loading: true
+            loading: true,
+            email:''
         };
     }
 
@@ -82,14 +83,16 @@ export default class result extends Component {
         console.log("Inside Send Email Beginning");
         const selected_data = localStorage.getItem('array');
         const image_url =  `${toAbsoluteUrl(localStorage.getItem('outputimage'))}`
+        const email_address = this.state.email;
         console.log("Output image URL in send email function ", image_url);
+        console.log("User Input Email Address ", email_address);
         // build the request payload which includes the url of the end-point we want to hit
         const payload = {
           details: JSON.stringify(selected_data),
           result_image: image_url
         };
 
-        return mailer.sendMail('ayrepoojasocial90@gmail.com', ['reciever@email.com'], payload)
+        return mailer.sendMail('ayrepoojasocial90@gmail.com', [email_address], payload)
 
     };
 
@@ -116,6 +119,12 @@ export default class result extends Component {
 
                 <div>
 
+                    
+                    <span>&nbsp; &nbsp;</span>
+                    <input type="text" id="email" placeholder='Please enter email address' onChange={(e)=>{this.setState({email: e.target.value})}}/>
+                    <span>&nbsp; &nbsp;</span>
+                    <button className="btn btn-primary text-light" onClick={() => this.sendEMail()}> Send Email</button>
+                    <span>&nbsp; &nbsp;</span>
                     <a
                         href={toAbsoluteUrl(this.status(this.props.match.params.total))}
                         download
@@ -123,8 +132,6 @@ export default class result extends Component {
                     >
                        <button className="btn btn-primary text-light">Download</button> 
                     </a>
-                    <span>&nbsp; &nbsp;</span>
-                    <button className="btn btn-primary text-light" onClick={() => this.sendEMail()}> Send Email</button>
                     <span>&nbsp; &nbsp;</span>
                     <button  className="btn btn-primary text-light" onClick={this.props.history.goBack}>Go back</button>
                 </div>

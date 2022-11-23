@@ -18,7 +18,7 @@ module.exports.sendMail = (sender, receivers, data) => {
   
   const params = {
     Destination: {
-      ToAddresses: [localStorage.getItem('user_email')]
+      ToAddresses: receivers
     },
     Message: {
       Subject: {
