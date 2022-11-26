@@ -112,15 +112,22 @@ export default class login extends Component {
                 <tr>
                 <td style={{ paddingright: "10px" }}>
                   <form onSubmit={this.onSubmit}>
-                    <input className='form-control' type='text' value={this.state.username} onChange={(event) => this.setState({ username: event.target.value })} placeholder='username' /><br />
-                    <input className='form-control' type='password' value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} placeholder='password' /><br />
-                    <input className='btn btn primary'style={{ marginLeft: "50px", background:"#ff8d00" }} type='button' onClick={this.onSubmit} value='LOGIN' />
+                    <input className='form-control' style={{ marginLeft: "20px" }} type='text' value={this.state.username} onChange={(event) => this.setState({ username: event.target.value })} placeholder='username' /><br />
+                    <input className='form-control'  style={{ marginLeft: "20px" }} type='password' value={this.state.password} onChange={(event) => this.setState({ password: event.target.value })} placeholder='password' /><br />
+                    <tr>
+                      <td>
+                      <input className='btn btn primary'style={{ marginLeft: "50px", background:"#ff8d00" }} type='button' onClick={this.onSubmit} value='LOGIN' />
+                      </td>
+                      <td>
+                      <input className='btn btn primary'style={{ marginLeft: "20px", background:"#ff8d00" }} type='button' value='REGISTER' />
+                      </td>
+                    </tr>
                   </form>
                   <p style={{ color: 'red', display: this.state.isLoginFailed ? 'block' : 'none' }}>Invalid Username or Password</p>
 
                 </td>
                 <td>
-                  <img src={login_image} height="350px" width="220px" style={{ marginLeft: "150px",marginTop: "30px" }} />
+                  <img src={login_image} height="350px" width="220px" style={{ marginLeft: "120px",marginTop: "15px" }} />
                 </td>
                 
                 </tr>
