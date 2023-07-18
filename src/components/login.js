@@ -5,7 +5,7 @@ import ILayoutProps from 'react-dropzone-uploader';
 import "react-dropzone-uploader/dist/styles.css";
 import { CognitoUserPool, CognitoUser, AuthenticationDetails } from 'amazon-cognito-identity-js';
 import axios from 'axios';
-import login_image from "../images/login_image.png"
+import login_image from "../images/login_image_1.jpg"
 
 const UserPoolId = "ca-central-1_hVd1zBClK";
 const ClientId = "67mpvg0pkbqdhr30fj8lno8ehb";
@@ -44,7 +44,7 @@ export default class login extends Component {
           isAuthenticated: true,
           isLoginFailed: false,
         });
-        this.props.history.push('/selectScale')
+        this.props.history.push('/UploadToS3')
     }
   };
 
@@ -106,8 +106,8 @@ export default class login extends Component {
 
         <div className='col-md-25'>
           <div className="card " style={{ padding: "15px " , height:'500px', margin:'170px -40px 0 327px',width:'600px', background:"#d6eef0" }}>
-          <h1 style={{color:"#ff8d00" }}>RESILIENCE</h1>
-          <h4 style={{color:"#ff8d00" }}>Why do some of us bounce back from adversity better than others?</h4>
+          <h1 style={{color:"#ff8d00" }}>Clinical Transcription</h1>
+          <h4 style={{color:"#ff8d00" }}></h4>
               <table>
                 <tr>
                 <td style={{ paddingright: "10px" }}>
